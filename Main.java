@@ -1,12 +1,13 @@
 // Importation de toutes les classes du package POOJava
 import POOJava.*;
+import POOJavaEcole.*;
 
 // Classe principale du programme
 public class Main 
 {
 
     // public static void main = méthode principale du programme ( obligatoire en Java )
-    public static void main(String arg[]) 
+    public static void main(String args[]) 
     {
 
         // HOMME 1
@@ -60,6 +61,25 @@ public class Main
         } 
         */
 
+
+        Etudiant etudiant1 = new Etudiant("Doe", "Jhon", 25, "Développement web", false);   
+        Etudiant etudiant2 = new Etudiant("Tony", "Montana", 25, "CDA", false);
+        Etudiant etudiant3 = new Etudiant("Gros", "Tony", 25, "Infographie", false);
+
+
+        String[] matieresEnseignees = {"Développement web", "CDA", "Infographie"};
+        Etudiant[] etudiants = {etudiant1, etudiant2, etudiant3};
+
+        Ecole ecole = new Ecole("Arinfo", matieresEnseignees, "Niort", etudiants);
+        ecole.showInformations();
+
+        // Ce code utilise une boucle "for-each" pour parcourir un tableau d'objets de type Humain.
+        for (Etudiant etudiant : ecole.getEtudiants()) 
+        {
+            etudiant.sayHello();                                            // Pour chaque objet Humain dans le tableau, nous appelons la méthode "sayEverything()".           
+            etudiant.setDiplomeObtenu(true);
+            etudiant.isGraduated();
+        }
     }
 
 }
